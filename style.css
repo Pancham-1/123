@@ -40,6 +40,7 @@ body {
     line-height: 1.5;
     color: var(--text-color);
 }
+
 /* Styling for keyboard typed text */
 kbd {
     font-family: monospace; /* Ensures the text uses a monospaced font */
@@ -58,7 +59,6 @@ kbd {
         border-color: #555;     /* Slightly lighter border color for dark mode */
     }
 }
-
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
@@ -111,6 +111,17 @@ code {
     background-color: var(--code-background-color);
     color: var(--code-color);
     border-radius: 3px;
+}
+
+/* Styling for typed text feel */
+p, .typed-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Preserve whitespace for a more 'typed' effect */
 }
 
 blockquote {
@@ -200,7 +211,6 @@ input:required:not([type="submit"]){
 
 textarea.full-screen {
     position: fixed;
-    background-color: white;
     top: -2px;
     bottom: -2px;
     left: 0;
@@ -315,5 +325,3 @@ ul.discover-posts li small span, ul.discover-posts li small span a {
         color: #aaa;
     }
 }
-
-
