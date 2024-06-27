@@ -11,7 +11,7 @@
     <!-- Navigation -->
     <nav>
         <a href="#Home">Home</a>
-        <a href="#Software">Software</a>
+        <a href="software.html">Software</a>
         <a href="#Mechatronics">Mechatronics</a>
     </nav>
     
@@ -32,42 +32,44 @@
                 <br>From the humble Z80 processor, we've leaped to today's processors that outperform its modest capabilities. Now, we're talking about multi-core processors, GPUs that rival the supercomputers of past decades, and software that harnesses the power of cloud computing with just a click. Robotics isn't just about moving parts anymore; it's about AI-driven machines that learn, adapt, and collaborate with humans in ways we once only dreamed of.
                 <br>Technology has come a long way, and I'm thrilled to be part of this journey forward. So, buckle up! As you are going to see some of the projects that I have worked on (they're basic projects but you will probably like them). Continue with the big talk .....
                 <br>Because if we're going to build the future, we might as well enjoy the ride — one algorithm at a time.
-                <br><button class="click" onclick="openPopup()">Show Projects</button></p>
-                <!-- Audio for button click -->
-                <audio class="click" id="clickSound" src="windows_popup_sound.mp3"></audio>
+                <br><button class="click" onclick="openPopup(); playPopupSound();">Show Projects</button></p>
         </section>
-    </div>
-
-    <!-- Windows Pop-Up -->
-    <div class="window" id="popup">
-        <div class="title-bar">
-            <div class="title-bar-text">Projects</div>
-            <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close" onclick="closePopup()"></button>
+        <!-- Windows Pop-Up -->
+        <div class="window" id="popup" style="display: none;">
+            <div class="title-bar">
+                <div class="title-bar-text">Projects</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close" onclick="closePopup()"></button>
+                </div>
             </div>
-        </div>
-        <div class="window-body">
-            <section class="field-row">
-                <button>Software</button>
-                <button>Mechatronics</button>
-            </section>
+            <div class="window-body">
+                <section class="field-row">
+                    <button onclick="window.location.href='software.html'">Software</button>
+                    <button>Mechatronics</button>
+                </section>
+            </div>
         </div>
     </div>
 
     <!-- JavaScript for popup and scroll detection -->
     <script>
         function openPopup() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             document.getElementById('popup').style.display = 'block';
             document.querySelector('.3d-model').style.display = 'none';
-            document.getElementById('clickSound').play();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
             document.querySelector('.3d-model').style.display = 'block';
+        }
+
+        function playPopupSound() {
+            const audio = new Audio('windows_popup_sound.mp3');
+            audio.currentTime = 0; // Reset the audio to the beginning
+            audio.play().catch(error => console.error('Audio play error:', error));
         }
     </script>
 </body>
