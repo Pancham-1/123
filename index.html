@@ -32,7 +32,7 @@
                 <br>From the humble Z80 processor, we've leaped to today's processors that outperform its modest capabilities. Now, we're talking about multi-core processors, GPUs that rival the supercomputers of past decades, and software that harnesses the power of cloud computing with just a click. Robotics isn't just about moving parts anymore; it's about AI-driven machines that learn, adapt, and collaborate with humans in ways we once only dreamed of.
                 <br>Technology has come a long way, and I'm thrilled to be part of this journey forward. So, buckle up! As you are going to see some of the projects that I have worked on (they're basic projects but you will probably like them). Continue with the big talk .....
                 <br>Because if we're going to build the future, we might as well enjoy the ride — one algorithm at a time.
-                <br><button class="click" onclick="openPopup(); playPopupSound();">Show Projects</button></p>
+                <br><button class="click" onclick="openPopup()">Show Projects</button></p>
         </section>
         <!-- Windows Pop-Up -->
         <div class="window" id="popup" style="display: none;">
@@ -53,23 +53,30 @@
         </div>
     </div>
 
+    <!-- Audio Element for Popup Sound -->
+    <audio id="popup-sound" src="windows_popup_sound.mp3"></audio>
+
     <!-- JavaScript for popup and scroll detection -->
     <script>
         function openPopup() {
+            // Play popup sound
+            document.getElementById('popup-sound').play();
+            
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Display popup and hide 3D model
             document.getElementById('popup').style.display = 'block';
             document.querySelector('.3d-model').style.display = 'none';
         }
 
         function closePopup() {
+            // Play popup close sound (if desired)
+            // document.getElementById('popup-sound').play();
+            
+            // Hide popup and display 3D model
             document.getElementById('popup').style.display = 'none';
             document.querySelector('.3d-model').style.display = 'block';
-        }
-
-        function playPopupSound() {
-            const audio = new Audio('windows_popup_sound.mp3');
-            audio.currentTime = 0; // Reset the audio to the beginning
-            audio.play().catch(error => console.error('Audio play error:', error));
         }
     </script>
 </body>
