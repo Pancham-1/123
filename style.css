@@ -1,32 +1,19 @@
-/* Existing style.css content */
+/* Root Variables */
 :root {
     --width: 720px;
     --font-main: Verdana, sans-serif;
     --font-secondary: Verdana, sans-serif;
-    --font-scale: 1em; /* Corrected from --font-scael to --font-scale */
-    --background-color: #fff;
-    --heading-color: #222;
-    --text-color: #444;
-    --link-color: #3273dc;
-    --visited-color:  #8b6fcb;
-    --code-background-color: #f2f2f2;
-    --code-color: #222;
-    --blockquote-color: #222;
+    --font-scale: 1em;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #01242e;
-        --heading-color: #eee;
         --text-color: #ddd;
-        --link-color: #8cc2dd;
-        --visited-color:  #8b6fcb;
-        --code-background-color: #000;
-        --code-color: #ddd;
-        --blockquote-color: #ccc;
     }
 }
 
+/* Global Styles */
 body {
     font-family: var(--font-secondary);
     font-size: var(--font-scale);
@@ -35,293 +22,149 @@ body {
     max-width: var(--width);
     text-align: left;
     background-color: var(--background-color);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
     color: var(--text-color);
+    line-height: 1.5;
 }
-
-/* Styling for keyboard typed text */
-kbd {
-    font-family: monospace; /* Ensures the text uses a monospaced font */
-    padding: 2px 4px;       /* Adds some padding to the element */
-    background-color: #f2f2f2; /* Light background color to differentiate it from normal text */
-    color: #222;            /* Text color */
-    border: 1px solid #ccc; /* Border to make it look like a keyboard key */
-    border-radius: 3px;     /* Slightly rounded corners for a key-like appearance */
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
-}
-
-@media (prefers-color-scheme: dark) {
-    kbd {
-        background-color: #333; /* Dark background for dark mode */
-        color: #ddd;            /* Light text color for dark mode */
-        border-color: #555;     /* Slightly lighter border color for dark mode */
-    }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-main);
-    color: var(--heading-color);
-}
-
-a {
-    color: var(--link-color);
-    cursor: pointer;
+/* NavBar */
+nav {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  nav a {
+    color: white;
     text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  
+nav :hover{
+    text-decoration: underline;
 }
 
-a:hover {
-    text-decoration: underline; 
-}
 
-nav a {
-    margin-right: 8px;
-}
-
-strong, b {
-    color: var(--heading-color);
-}
-
-button {
-    margin: 0;
-    cursor: pointer;
-}
-
-content {
-    line-height: 1.6;
-}
-
-table {
-    width: 100%;
-}
-
-hr {
-    border: 0;
-    border-top: 1px dashed;
-}
-
-img {
-    max-width: 100%;
-}
-
-code {
-    font-family: monospace;
-    padding: 2px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: 3px;
-}
-
-/* Styling for typed text feel */
-p, .typed-text {
+/* Paragraph Styling */
+p {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
-    color: var(--text-color);
     padding: 10px;
     border-radius: 5px;
     line-height: 1.5;
-    white-space: pre-wrap; /* Preserve whitespace for a more 'typed' effect */
+    white-space: pre-wrap;
+    margin-bottom: 20px; /* Ensure space below paragraphs */
+}
+  
+/* Windows 90s Style Popup */
+.window {
+    font-family: 'Tahoma', sans-serif;
+    border: 2px solid #000;
+    background-color: #c0c0c0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    width: 300px; /* Adjust as needed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.5s ease-in-out, scaleUp 0.5s ease-in-out;
+    z-index: 1000; /* Ensure it's above other content */
+    display: none; /* Initially hide it */
 }
 
-blockquote {
-    border-left: 1px solid #999;
-    color: var(--code-color);
-    padding-left: 20px;
-    font-style: italic;
-}
-
-footer {
-    padding: 25px 0;
-    text-align: center;
-}
-
-.title:hover {
-    text-decoration: none;
-}
-
-.title h1 {
-    font-size: 1.5em;
-}
-
-.inline {
-    width: auto !important;
-}
-
-.highlight, .code {
-    padding: 1px 15px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: 3px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    overflow-x: scroll;
-}
-
-/* blog post list */
-ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-}
-
-ul.blog-posts li {
-    display: flex;
-}
-
-ul.blog-posts li span {
-    flex: 0 0 130px;
-}
-
-ul.blog-posts li a:visited {
-    color: var(--visited-color);
-}
-
-/* Content from dashboard.css */
-.title-bear {
-    font-weight: 400;
-}
-
-.bear::before {
-    content: "ᕦʕ •ᴥ•ʔᕤ";
-    font-weight: 400;
-}
-.bear:hover::before {
-    content: "ᕙʕ ಠᴥಠʔᕗ";
-    font-weight: 400;
-}
-
-textarea,
-input:not([type="submit"]) {
-    background-color: inherit;
-    color: inherit;
-    border: 1px dashed;
-    padding: 5px;
-    font-size: 16px;
-}
-
-.full-width textarea,
-.full-width input:not([type="submit"], [type="checkbox"], [type="radio"]) {
-    width: calc(100% - 15px);
-}
-
-textarea:required,
-input:required:not([type="submit"]){
-    border: 1px solid;
-}
-
-textarea.full-screen {
-    position: fixed;
-    top: -2px;
-    bottom: -2px;
-    left: 0;
-    width: calc(100vw - 30px);
-    max-width: 720px;
-    border: 10px solid;
-    border-width: 10px calc(50vw - 370px);
-}
-
-@media only screen and (max-width: 750px) {
-    textarea.full-screen {
-        border-width: 10px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
-input[type='checkbox'], input[type='radio'] {
-    height: 15px;
-    margin-right: 10px;
+@keyframes scaleUp {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
-button {
-    margin: 0;
+.title-bar {
+    background: linear-gradient(to right, #000080, #0000cd);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 5px;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
-button.floating {
-    position: fixed;
-    bottom: 20px;
-    right: 25px;
+.title-bar-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-button#toggle-full-screen {
-    float: right;
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
 }
 
-.helptext {
-    color: #777;
-    font-size: small;
+.title-bar-controls button {
+    width: 16px;
+    height: 16px;
+    background-color: #c0c0c0;
+    border: 1px solid #000;
+    padding: 0;
+    cursor: pointer;
 }
 
-.errorlist {
-    color: #eba613;
-    font-size: small;
-}
-
-#date-range {
-    display: none;
-}
-
-#date-range:target {
+.title-bar-controls button[aria-label="Minimize"]::before {
+    content: '_';
     display: block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
 }
 
-/* dashboard post list and analytics */
-ul.post-list {
-    list-style-type: none;
-    padding: unset;
+.title-bar-controls button[aria-label="Maximize"]::before {
+    content: '▢';
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
 }
 
-ul.post-list li {
+.title-bar-controls button[aria-label="Close"]::before {
+    content: 'X';
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.window-body {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.field-row {
     display: flex;
-    align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px dashed;
+    justify-content: flex-end;
+    gap: 5px;
 }
 
-ul.post-list li span {
-    flex: 0 0 130px;
+.field-row button {
+    background-color: #c0c0c0;
+    border: 1px solid #000;
+    padding: 2px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
 }
 
-ul.post-list li span.number {
-    flex: 0 0 50px;
-}
-
-ul.post-list li a {
-    flex: max-content;
-}
-
-ul.post-list li small {
-    text-align: right;
-    flex: 0 0 115px;
-}
-
-/* discovery feed */
-ul.discover-posts {
-    list-style-type: none;
-    padding: unset;
-}
-
-ul.discover-posts li {
-    display: flex;
-    line-height: 1.2;
-}
-
-ul.discover-posts li span {
-    flex: 0 0 40px;
-}
-
-ul.discover-posts li a:visited {
-  color: #8b6fcb;
-}
-
-ul.discover-posts li div {
-    padding-bottom: 8px;
-}
-
-ul.discover-posts li small span, ul.discover-posts li small span a {
-    color: #777 !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    .helptext {
-        color: #aaa;
-    }
+.field-row button:hover {
+    background-color: #a0a0a0;
 }

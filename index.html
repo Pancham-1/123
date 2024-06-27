@@ -6,38 +6,69 @@
     <title>Projects - Engineering Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <a href="#Home">Home</a>
         <a href="#Software">Software</a>
         <a href="#Mechatronics">Mechatronics</a>
     </nav>
     
+    <!-- Main Content -->
     <div class="Home">
         <section class="cover">
-
+            <!-- Your 3D model viewer code -->
             <div class="3d-model">
-                <model-viewer src="1970s_retro_computer.glb" alt="A 3D model of an object" auto-rotate camera-controls style="width: 100%; height: 600px;">
-                </model-viewer>
+                <model-viewer src="1970s_retro_computer.glb" alt="A 3D model of an object" auto-rotate camera-controls style="width: 100%; height: 600px;"></model-viewer>
             </div>
         </section>
-
         <section class="cover_content">
+            <!-- Your introductory paragraph content -->
             <p>Enough poking with the 3D model. But if you've touched that thing let's first know what it is:
-            <br>FlashBack 📷 ✨ 😵
-            <br>Back in 1978, Sweden gave us the ABC 80, a computer so advanced it made typewriters tremble in fear. Sporting a Zilog Z80 processor, this beast had a whopping 16 KB of RAM—enough to store maybe two of your selfies today. Its monochrome display could show a staggering 78x72 characters, perfect for reading pixelated novels. With its robust build, this machine could survive a Viking raid. Why am I suddenly feeling like a salesman from the 80's. Let's get back to the present.
-            <br>Present 🎁
-            <br>From the humble Z80 processor, we've leaped to today's processors that outperform its modest capabilities. Now, we're talking about multi-core processors, GPUs that rival the supercomputers of past decades, and software that harnesses the power of cloud computing with just a click. Robotics isn't just about moving parts anymore; it's about AI-driven machines that learn, adapt, and collaborate with humans in ways we once only dreamed of.
-            <br>Technology has come a long way, and I'm thrilled to be part of this journey forward. So, buckle up! As you are going to see some of the projects that I have worked on (they're basic projects but you will probably like them). Continue with the big talk .....
-            <br>Because if we're going to build the future, we might as well enjoy the ride — one algorithm at a time.
-            </p>
+                <br>FlashBack 📷 ✨ 😵
+                <br>Back in 1978, Sweden gave us the ABC 80, a computer so advanced it made typewriters tremble in fear. Sporting a Zilog Z80 processor, this beast had a whopping 16 KB of RAM—enough to store maybe two of your selfies today. Its monochrome display could show a staggering 78x72 characters, perfect for reading pixelated novels. With its robust build, this machine could survive a Viking raid. Why am I suddenly feeling like a salesman from the 80's. Let's get back to the present.
+                <br>Present 🎁
+                <br>From the humble Z80 processor, we've leaped to today's processors that outperform its modest capabilities. Now, we're talking about multi-core processors, GPUs that rival the supercomputers of past decades, and software that harnesses the power of cloud computing with just a click. Robotics isn't just about moving parts anymore; it's about AI-driven machines that learn, adapt, and collaborate with humans in ways we once only dreamed of.
+                <br>Technology has come a long way, and I'm thrilled to be part of this journey forward. So, buckle up! As you are going to see some of the projects that I have worked on (they're basic projects but you will probably like them). Continue with the big talk .....
+                <br>Because if we're going to build the future, we might as well enjoy the ride — one algorithm at a time.
+                <br><button class="click" onclick="openPopup()">Show Projects</button></p>
+                <!-- Audio for button click -->
+                <audio class="click" id="clickSound" src="windows_popup_sound.mp3"></audio>
         </section>
     </div>
 
-    
-    
-    
+    <!-- Windows Pop-Up -->
+    <div class="window" id="popup">
+        <div class="title-bar">
+            <div class="title-bar-text">Projects</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close" onclick="closePopup()"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <section class="field-row">
+                <button>Software</button>
+                <button>Mechatronics</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- JavaScript for popup and scroll detection -->
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.querySelector('.3d-model').style.display = 'none';
+            document.getElementById('clickSound').play();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.querySelector('.3d-model').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
