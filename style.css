@@ -191,6 +191,19 @@ p {
     padding: 0; /* No padding */
 }
 
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .projects-box {
+        gap: 1rem; /* Reduce gap between rows */
+    }
+
+    .projects-card {
+        padding: 1rem; /* Adjust padding */
+        margin-bottom: 1.5rem; /* Reduce gap between cards */
+    }
+}
+
+
 .projects-card {
     display: flex;
     flex-direction: column;
