@@ -195,6 +195,7 @@ p {
 @media (max-width: 350px) {
     .projects-box {
         gap: 1rem; /* Reduce gap between rows */
+        justify-content: center; /* Center content */
     }
 
     .projects-card {
