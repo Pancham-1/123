@@ -1,11 +1,37 @@
 /* Root Variables */
+/* Root Variables */
 :root {
     --width: 720px; /* Default max-width for the body */
     --font-main: Verdana, sans-serif; /* Primary font family */
     --font-secondary: Verdana, sans-serif; /* Secondary font family */
     --font-scale: 1em; /* Font scale factor */
-    --background-color: #fff; /* Default background color */
-    --text-color: #000; /* Default text color */
+    --background-color: #01242e; /* Dark mode background color */
+    --text-color: #ddd; /* Dark mode text color */
+    --main-color: #00ffee; /* Main color */
+    --bg-color: #01242e; /* Background color for dark mode */
+    --link-color: #00ffee; /* Link color */
+}
+
+/* Global Styles */
+body {
+    font-family: var(--font-secondary); /* Apply secondary font family */
+    font-size: var(--font-scale); /* Base font size */
+    margin: auto; /* Center align content horizontally */
+    padding: 20px; /* Padding around content */
+    max-width: var(--width); /* Maximum width of content */
+    text-align: left; /* Left-align text */
+    background-color: var(--background-color); /* Background color */
+    color: var(--text-color); /* Text color */
+    line-height: 1.5; /* Line height */
+}
+
+a {
+    color: var(--link-color); /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 /* Dark mode styles */
@@ -13,6 +39,7 @@
     :root {
         --background-color: #01242e; /* Dark mode background color */
         --text-color: #ddd; /* Dark mode text color */
+        --link-color: #00ffee; /* Dark mode link color */
     }
 }
 
@@ -192,18 +219,17 @@ p {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 350px) {
+@media (max-width: 768px) {
     .projects-box {
         gap: 1rem; /* Reduce gap between rows */
         justify-content: center; /* Center content */
     }
 
     .projects-card {
-        padding: 1rem; /* Adjust padding */
+        padding: 1rem; /* Adjusted padding for smaller screens */
         margin-bottom: 1.5rem; /* Reduce gap between cards */
     }
 }
-
 
 .projects-card {
     display: flex;
@@ -212,18 +238,17 @@ p {
     text-align: center;
     background-color: var(--bg-color);
     border: 2px solid var(--main-color);
-    border-radius: 10px; /* Adjust border radius for a smoother edge */
-    padding: 1.5rem;
+    border-radius: 10px;
+    padding: 1.5rem; /* Adjust padding as needed */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 255, 238, 0.5);
     cursor: pointer;
     width: 100%; /* Full width */
-    max-width: 500px; /* Max width for responsiveness */
-    height: auto; /* Auto height */
+    max-width: 100%; /* Ensure it fits within the viewport */
     margin: auto;
     margin-bottom: 3rem; /* Adjusted gap between rows */
+    box-sizing: border-box; /* Include padding in total width */
 }
-
 
 .projects-card:hover {
     box-shadow: 0 0 25px rgba(0, 255, 238, 0.8); /* Hover box shadow */
@@ -240,33 +265,6 @@ p {
     margin-bottom: 1.5rem; /* Space between video and button */
 }
 
-
-.projects-card h3 {
-    font-size: 1.6rem; /* Font size */
-    margin-bottom: 1.5rem; /* Space between heading and video */
-    color: white; /* Heading color */
-    font-weight: 600; /* Font weight */
-}
-
-.projects-card .btn {
-    display: inline-block; /* Inline block */
-    padding: 0.5rem 1.5rem; /* Padding */
-    background: var(--main-color); /* Background color */
-    box-shadow: 0 0 25px var(--main-color); /* Box shadow */
-    border-radius: 4rem; /* Border radius */
-    font-size: 1.2rem; /* Font size */
-    border: 2px solid transparent; /* Transparent border */
-    letter-spacing: 0.1rem; /* Letter spacing */
-    font-weight: 600; /* Font weight */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
-    cursor: pointer; /* Pointer cursor */
-}
-
-.projects-card .btn:hover {
-    box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color); /* Hover box shadow */
-    transform: translateY(-5px); /* Move up on hover */
-}
-
 .project-video-large {
     width: 100%; /* Full width */
     height: auto; /* Auto height */
@@ -277,10 +275,10 @@ p {
     margin-bottom: 1.5rem; /* Space between video and button */
 }
 
-.back-btn{
+.back-btn {
     color: #fff;
 }
 
-.btn{
+.btn {
     color: white;
 }
